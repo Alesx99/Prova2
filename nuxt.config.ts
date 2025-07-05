@@ -13,18 +13,14 @@ export default defineNuxtConfig({
       apiBase: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000'
     }
   },
-  // Configurazione per GitHub Pages
-  ssr: false, // Disabilita SSR per GitHub Pages
+  // Configurazione semplificata per GitHub Pages
+  ssr: false,
+  app: {
+    baseURL: '/TutorialSviluppo/'
+  },
   nitro: {
     prerender: {
       routes: ['/']
     }
-  },
-  experimental: {
-    payloadExtraction: false
-  },
-  app: {
-    baseURL: process.env.NODE_ENV === 'production' ? '/TutorialSviluppo/' : '/',
-    buildAssetsDir: '/_nuxt/'
   }
 })
