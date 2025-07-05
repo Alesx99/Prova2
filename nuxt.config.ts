@@ -15,8 +15,13 @@ export default defineNuxtConfig({
   },
   // Configurazione per GitHub Pages
   ssr: false, // Disabilita SSR per GitHub Pages
+  nitro: {
+    prerender: {
+      routes: ['/']
+    }
+  },
   app: {
-    baseURL: process.env.NODE_ENV === 'production' ? '/tutorial-moderno-web/' : '/',
+    baseURL: process.env.NODE_ENV === 'production' ? '/TutorialSviluppo/' : '/',
     buildAssetsDir: '/_nuxt/'
   }
 })
