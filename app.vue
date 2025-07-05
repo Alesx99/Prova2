@@ -603,7 +603,7 @@ CMD ["npm", "start"]
                   <pre class="code-block">
 function x(a,b,c) {
   let d = 0;
-  for(let i=0;i<a.length;i++) {
+  for(let i=0;i&lt;a.length;i++) {
     d += a[i] * b[i] + c;
   }
   return d;
@@ -615,11 +615,14 @@ function x(a,b,c) {
                   <h5>✅ Codice Pulito</h5>
                   <pre class="code-block">
 function calculateWeightedSum(values, weights, offset) {
-  return values.reduce((sum, value, index) => {
+  return values.reduce((sum, value, index) =&gt; {
     return sum + (value * weights[index] + offset);
   }, 0);
 }
                   </pre>
+                </div>
+                <div class="note" style="background:#fff3cd; color:#856404; border-left:5px solid #ffe066; padding:1rem; border-radius:8px; margin-top:1rem;">
+                  <strong>Nota:</strong> Quando inserisci esempi di codice in blocchi <code>&lt;pre&gt;</code> in Vue/Nuxt, sostituisci sempre i caratteri <code>&lt;</code> e <code>&gt;</code> con <code>&amp;lt;</code> e <code>&amp;gt;</code> per evitare errori di parsing!
                 </div>
               </div>
               
