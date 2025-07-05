@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Sviluppo Web Moderno</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-graduation-cap"></i> Tutorial Sviluppo Web Moderno</h1>
+            <p class="subtitle">Preparati per il mondo del lavoro nelle telecomunicazioni</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <button class="nav-btn active" data-section="intro">Introduzione</button>
+            <button class="nav-btn" data-section="frontend">Frontend</button>
+            <button class="nav-btn" data-section="backend">Backend</button>
+            <button class="nav-btn" data-section="database">Database</button>
+            <button class="nav-btn" data-section="testing">Testing</button>
+            <button class="nav-btn" data-section="devops">DevOps</button>
+            <button class="nav-btn" data-section="best-practices">Best Practices</button>
+            <button class="nav-btn" data-section="quiz">Quiz</button>
+        </nav>
+
+        <!-- Content Sections -->
+        <main class="content">
+            <!-- Introduzione -->
+            <section id="intro" class="section active">
+                <h2><i class="fas fa-rocket"></i> Introduzione</h2>
+                <div class="card">
+                    <h3>Benvenuto nel Tutorial Completo!</h3>
+                    <p>Questo tutorial ti preparerà per posizioni in aziende di telecomunicazioni come:</p>
+                    <ul>
+                        <li><strong>Fastweb</strong> - Sviluppo applicazioni web moderne</li>
+                        <li><strong>Metroweb</strong> - Infrastrutture e servizi digitali</li>
+                        <li><strong>OpenFiber</strong> - Tecnologie di rete avanzate</li>
+                    </ul>
+                    
+                    <div class="info-box">
+                        <h4><i class="fas fa-info-circle"></i> Note Didattiche</h4>
+                        <p>Questo tutorial segue un approccio universitario con spiegazioni dettagliate e esempi pratici.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Frontend -->
+            <section id="frontend" class="section">
+                <h2><i class="fas fa-palette"></i> Frontend Moderno</h2>
+                
+                <div class="card">
+                    <h3>Vue 3 - Framework Progressivo</h3>
+                    <p>Vue 3 introduce la Composition API per una migliore organizzazione del codice:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: Componente Vue 3</h4>
+                        <pre><code>&lt;template&gt;
+  &lt;div class="counter"&gt;
+    &lt;h3&gt;{{ title }}&lt;/h3&gt;
+    &lt;p&gt;Contatore: {{ count }}&lt;/p&gt;
+    &lt;button @click="increment"&gt;Incrementa&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref, computed } from 'vue'
+
+const count = ref(0)
+const title = ref('Contatore Vue 3')
+
+const increment = () => {
+  count.value++
+}
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4><i class="fas fa-question-circle"></i> Quiz Rapido</h4>
+                        <p><strong>Domanda:</strong> Quale è la principale novità di Vue 3?</p>
+                        <div class="options">
+                            <button class="option-btn" data-correct="true">Composition API</button>
+                            <button class="option-btn" data-correct="false">Options API</button>
+                            <button class="option-btn" data-correct="false">Vuex</button>
+                        </div>
+                        <div class="answer-feedback" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Nuxt 3 - Framework Full-Stack</h3>
+                    <p>Nuxt 3 offre funzionalità avanzate per applicazioni moderne:</p>
+                    <ul>
+                        <li><strong>File-based Routing</strong> - Routing automatico basato sui file</li>
+                        <li><strong>Server-Side Rendering</strong> - SEO ottimizzato</li>
+                        <li><strong>Static Site Generation</strong> - Performance elevate</li>
+                        <li><strong>Auto-imports</strong> - Meno codice boilerplate</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Pinia - State Management</h3>
+                    <p>Pinia è il nuovo store management per Vue 3:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: Store Pinia</h4>
+                        <pre><code>import { defineStore } from 'pinia'
+
+export const useUserStore = defineStore('user', {
+  state: () => ({
+    user: null,
+    isAuthenticated: false
+  }),
+  
+  actions: {
+    login(userData) {
+      this.user = userData
+      this.isAuthenticated = true
+    },
+    
+    logout() {
+      this.user = null
+      this.isAuthenticated = false
+    }
+  }
+})</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Backend -->
+            <section id="backend" class="section">
+                <h2><i class="fas fa-server"></i> Backend & API</h2>
+                
+                <div class="card">
+                    <h3>REST APIs</h3>
+                    <p>Le REST APIs sono fondamentali per applicazioni moderne:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: API Endpoint</h4>
+                        <pre><code>// GET /api/users
+app.get('/api/users', async (req, res) => {
+  try {
+    const users = await User.find()
+    res.json(users)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+})
+
+// POST /api/users
+app.post('/api/users', async (req, res) => {
+  try {
+    const user = new User(req.body)
+    await user.save()
+    res.status(201).json(user)
+  } catch (error) {
+    res.status(400).json({ error: error.message })
+  }
+})</code></pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Autenticazione JWT</h3>
+                    <p>JSON Web Tokens per autenticazione sicura:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: Middleware JWT</h4>
+                        <pre><code>const jwt = require('jsonwebtoken')
+
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
+  
+  if (!token) {
+    return res.status(401).json({ error: 'Token richiesto' })
+  }
+  
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ error: 'Token non valido' })
+    req.user = user
+    next()
+  })
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Database -->
+            <section id="database" class="section">
+                <h2><i class="fas fa-database"></i> Database</h2>
+                
+                <div class="card">
+                    <h3>Modelli Dati</h3>
+                    <p>Design di database efficienti e scalabili:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: Schema Utente</h4>
+                        <pre><code>const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 3
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: /^\S+@\S+\.\S+$/
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 6
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+})</code></pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Query Ottimizzate</h3>
+                    <p>Query efficienti per performance elevate:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: Query con Indici</h4>
+                        <pre><code>// Query ottimizzata con proiezione
+const users = await User.find(
+  { role: 'user' },
+  { username: 1, email: 1, createdAt: 1 }
+).sort({ createdAt: -1 }).limit(10)
+
+// Aggregazione per statistiche
+const stats = await User.aggregate([
+  { $group: { _id: '$role', count: { $sum: 1 } } }
+])</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testing -->
+            <section id="testing" class="section">
+                <h2><i class="fas fa-vial"></i> Testing</h2>
+                
+                <div class="card">
+                    <h3>Unit Testing</h3>
+                    <p>Test unitari per garantire la qualità del codice:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: Test Unitario</h4>
+                        <pre><code>import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import Counter from './Counter.vue'
+
+describe('Counter', () => {
+  it('incrementa il contatore quando si clicca il pulsante', () => {
+    const wrapper = mount(Counter)
+    
+    expect(wrapper.text()).toContain('Contatore: 0')
+    
+    wrapper.find('button').trigger('click')
+    
+    expect(wrapper.text()).toContain('Contatore: 1')
+  })
+})</code></pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Integration Testing</h3>
+                    <p>Test di integrazione per verificare il funzionamento complessivo:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: Test API</h4>
+                        <pre><code>import request from 'supertest'
+import app from '../app'
+
+describe('API Users', () => {
+  it('GET /api/users restituisce lista utenti', async () => {
+    const response = await request(app)
+      .get('/api/users')
+      .expect(200)
+    
+    expect(Array.isArray(response.body)).toBe(true)
+  })
+  
+  it('POST /api/users crea nuovo utente', async () => {
+    const userData = {
+      username: 'testuser',
+      email: 'test@example.com',
+      password: 'password123'
+    }
+    
+    const response = await request(app)
+      .post('/api/users')
+      .send(userData)
+      .expect(201)
+    
+    expect(response.body.username).toBe(userData.username)
+  })
+})</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DevOps -->
+            <section id="devops" class="section">
+                <h2><i class="fas fa-cogs"></i> DevOps</h2>
+                
+                <div class="card">
+                    <h3>CI/CD Pipeline</h3>
+                    <p>Pipeline di integrazione e deployment continui:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: GitHub Actions</h4>
+                        <pre><code>name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    - run: npm ci
+    - run: npm test
+    - run: npm run build
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Deploy to production
+      run: echo "Deploying to production..."</code></pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Containerizzazione</h3>
+                    <p>Docker per deployment consistente:</p>
+                    
+                    <div class="code-example">
+                        <h4>Esempio: Dockerfile</h4>
+                        <pre><code>FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Best Practices -->
+            <section id="best-practices" class="section">
+                <h2><i class="fas fa-star"></i> Best Practices</h2>
+                
+                <div class="card">
+                    <h3>Clean Code</h3>
+                    <p>Principi per codice pulito e manutenibile:</p>
+                    <ul>
+                        <li><strong>Nomi significativi</strong> - Variabili e funzioni con nomi chiari</li>
+                        <li><strong>Funzioni piccole</strong> - Una responsabilità per funzione</li>
+                        <li><strong>Commenti utili</strong> - Spiegare il "perché", non il "cosa"</li>
+                        <li><strong>DRY</strong> - Don't Repeat Yourself</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Performance</h3>
+                    <p>Ottimizzazioni per performance elevate:</p>
+                    <ul>
+                        <li><strong>Lazy Loading</strong> - Caricamento on-demand dei componenti</li>
+                        <li><strong>Code Splitting</strong> - Divisione del bundle in chunks</li>
+                        <li><strong>Caching</strong> - Cache intelligente per dati e asset</li>
+                        <li><strong>Compressione</strong> - Gzip/Brotli per ridurre dimensioni</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Sicurezza</h3>
+                    <p>Best practices per applicazioni sicure:</p>
+                    <ul>
+                        <li><strong>Input Validation</strong> - Validazione di tutti gli input</li>
+                        <li><strong>HTTPS</strong> - Crittografia end-to-end</li>
+                        <li><strong>Rate Limiting</strong> - Protezione da attacchi DDoS</li>
+                        <li><strong>SQL Injection</strong> - Uso di prepared statements</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Quiz -->
+            <section id="quiz" class="section">
+                <h2><i class="fas fa-question-circle"></i> Quiz Finale</h2>
+                
+                <div class="card">
+                    <h3>Metti alla prova le tue conoscenze!</h3>
+                    
+                    <div class="quiz-container">
+                        <div class="quiz-question">
+                            <h4>1. Quale è la principale caratteristica di Vue 3?</h4>
+                            <div class="options">
+                                <button class="quiz-option" data-correct="true">Composition API</button>
+                                <button class="quiz-option" data-correct="false">Options API</button>
+                                <button class="quiz-option" data-correct="false">Vuex</button>
+                                <button class="quiz-option" data-correct="false">Vue Router</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>2. Cosa significa CI/CD?</h4>
+                            <div class="options">
+                                <button class="quiz-option" data-correct="false">Code Integration / Code Deployment</button>
+                                <button class="quiz-option" data-correct="true">Continuous Integration / Continuous Deployment</button>
+                                <button class="quiz-option" data-correct="false">Continuous Integration / Code Delivery</button>
+                                <button class="quiz-option" data-correct="false">Code Integration / Continuous Delivery</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h4>3. Quale è il miglior approccio per la sicurezza delle password?</h4>
+                            <div class="options">
+                                <button class="quiz-option" data-correct="false">Salvare in chiaro</button>
+                                <button class="quiz-option" data-correct="false">Crittografia semplice</button>
+                                <button class="quiz-option" data-correct="true">Hashing con salt</button>
+                                <button class="quiz-option" data-correct="false">Base64 encoding</button>
+                            </div>
+                        </div>
+
+                        <button id="check-quiz" class="btn-primary">Verifica Risposte</button>
+                        <div id="quiz-results" class="quiz-results" style="display: none;"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Tutorial Sviluppo Web Moderno - Preparati per il mondo del lavoro!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
