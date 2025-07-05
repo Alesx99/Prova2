@@ -29,6 +29,9 @@ jobs:
     - name: Create .nojekyll file
       run: touch .output/public/.nojekyll
       
+    - name: Copy public files
+      run: cp -r public/* .output/public/ 2>/dev/null || true
+      
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'

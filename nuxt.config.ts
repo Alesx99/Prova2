@@ -20,8 +20,11 @@ export default defineNuxtConfig({
       routes: ['/']
     }
   },
+  experimental: {
+    payloadExtraction: false
+  },
   app: {
     baseURL: process.env.NODE_ENV === 'production' ? '/TutorialSviluppo/' : '/',
-    buildAssetsDir: '/_nuxt/'
+    buildAssetsDir: process.env.NODE_ENV === 'production' ? '/TutorialSviluppo/_nuxt/' : '/_nuxt/'
   }
 })
