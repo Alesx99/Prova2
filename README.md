@@ -41,7 +41,7 @@ Prepararsi per posizioni in aziende come:
 
 ---
 
-**Live Demo**: [GitHub Pages](https://[username].github.io/[repository-name]/)
+**Live Demo**: [GitHub Pages](https://alesx99.github.io/Prova2/)
 
 # 🎓 Tutorial Completo - Sviluppo Web Professionale
 
