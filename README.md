@@ -1,6 +1,6 @@
 # 🎓 Tutorial Interattivo - Stack Moderno Web Development
 
-Un tutorial completo e interattivo per imparare Vue 3, Pinia, Nuxt 3, Prisma, GraphQL e SQLite con un approccio didattico elementare e scolastico.
+Un tutorial completo e interattivo per imparare Vue 3, Pinia e Nuxt 3 con un approccio didattico elementare e scolastico.
 
 ## 🌟 Caratteristiche
 
@@ -16,9 +16,6 @@ Un tutorial completo e interattivo per imparare Vue 3, Pinia, Nuxt 3, Prisma, Gr
 - **Vue 3** - Framework reattivo moderno
 - **Pinia** - State management type-safe
 - **Nuxt 3** - Framework full-stack
-- **Prisma** - ORM moderno per database
-- **GraphQL** - Query language per API
-- **SQLite** - Database leggero e portabile
 
 ### 🎮 **Funzionalità Interattive**
 - Navigazione step-by-step con barra di progresso
@@ -46,18 +43,12 @@ Un tutorial completo e interattivo per imparare Vue 3, Pinia, Nuxt 3, Prisma, Gr
    npm install
    ```
 
-3. **Configura il database**
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
-
-4. **Avvia il server di sviluppo**
+3. **Avvia il server di sviluppo**
    ```bash
    npm run dev
    ```
 
-5. **Apri il browser**
+4. **Apri il browser**
    ```
    http://localhost:3000
    ```
@@ -68,12 +59,10 @@ Un tutorial completo e interattivo per imparare Vue 3, Pinia, Nuxt 3, Prisma, Gr
 1. **Vue 3** - Framework reattivo con Composition API
 2. **Pinia** - Gestione stato globale
 3. **Nuxt 3** - Framework full-stack
-4. **Prisma** - ORM per database
-5. **GraphQL** - Query language per API
-6. **SQLite** - Database leggero
+4. **Integrazione Completa** - Come tutto funziona insieme
 
 ### 🎮 **Navigazione**
-- Usa i pulsanti "Precedente" e "Prossimo" per navigare
+- Usa i pulsanti di navigazione per muoverti tra le sezioni
 - Completa ogni sezione prima di procedere
 - Interagisci con le demo per testare le funzionalità
 - Rispondi ai quiz per verificare la comprensione
@@ -92,13 +81,11 @@ tutorial-moderno-web/
 │   └── users.ts
 ├── server/                 # API routes
 │   ├── api/
-│   │   └── users.ts
+│   │   └── users/
 │   └── utils/
-│       └── prisma.ts
-├── prisma/                 # Database schema
-│   └── schema.prisma
 ├── assets/                 # Stili e risorse
-│   └── main.css
+│   └── css/
+│       └── main.css
 └── nuxt.config.ts         # Configurazione Nuxt
 ```
 
@@ -106,8 +93,6 @@ tutorial-moderno-web/
 
 - **Frontend:** Vue 3, Pinia, Nuxt 3
 - **Backend:** Nuxt 3 API Routes
-- **Database:** SQLite con Prisma ORM
-- **API:** GraphQL con Apollo Server
 - **Styling:** CSS moderno con gradienti
 - **Build Tool:** Vite (integrato in Nuxt 3)
 
@@ -127,9 +112,7 @@ Questo progetto è sotto licenza MIT. Vedi il file `LICENSE` per maggiori dettag
 
 - Team Vue.js per Vue 3
 - Team Nuxt per Nuxt 3
-- Team Prisma per l'ORM
-- Community GraphQL
-- SQLite per il database leggero
+- Team Pinia per lo state management
 
 ## 📞 Contatti
 

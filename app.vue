@@ -3,7 +3,7 @@
     <!-- Header -->
     <header class="header">
       <h1>🎓 Tutorial Interattivo Sviluppo Web</h1>
-      <p>Impara Vue 3, Pinia, Nuxt 3, Prisma, GraphQL e SQLite passo dopo passo</p>
+      <p>Impara Vue 3, Pinia e Nuxt 3 passo dopo passo</p>
     </header>
 
     <!-- Navigation -->
@@ -198,165 +198,23 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Prisma Step -->
-        <div v-if="currentStep === 3" class="step-section">
-          <div class="glossary">
-            <h3>📚 Glossario</h3>
-            <div class="glossary-item">
-              <strong>ORM:</strong> Object-Relational Mapping - mappa oggetti a tabelle del database
-            </div>
-            <div class="glossary-item">
-              <strong>Schema:</strong> La definizione della struttura del database
-            </div>
-            <div class="glossary-item">
-              <strong>Migration:</strong> Modifiche alla struttura del database
-            </div>
-          </div>
-
-          <div class="analogy">
-            <h3>🔍 Analogia</h3>
-            <p>Pensa a Prisma come a un <strong>traduttore</strong>:</p>
-            <ul>
-              <li>🗣️ <strong>Schema</strong> = Il vocabolario (definizione tabelle)</li>
-              <li>📝 <strong>Client</strong> = Il traduttore (conversione codice)</li>
-              <li>🗄️ <strong>Database</strong> = La lingua straniera (SQL)</li>
-            </ul>
-          </div>
-
-          <div class="interactive-demo">
-            <h3>🎮 Demo Interattiva</h3>
-            <div class="demo-container">
-              <div class="prisma-schema-demo">
-                <h4>Schema Prisma</h4>
-                <pre class="code-block">
-model User {
-  id    Int     @id @default(autoincrement())
-  name  String
-  email String  @unique
-  posts Post[]
-}
-
-model Post {
-  id     Int    @id @default(autoincrement())
-  title  String
-  author User   @relation(fields: [authorId], references: [id])
-  authorId Int
-}
-                </pre>
+          <div class="quiz">
+            <h3>❓ Quiz</h3>
+            <div class="quiz-question">
+              <p><strong>Domanda:</strong> Cosa significa SSR in Nuxt?</p>
+              <div class="quiz-options">
+                <label><input type="radio" v-model="quiz3" value="a"> A) Single Server Response</label>
+                <label><input type="radio" v-model="quiz3" value="b"> B) Server-Side Rendering</label>
+                <label><input type="radio" v-model="quiz3" value="c"> C) Static Site Rendering</label>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- GraphQL Step -->
-        <div v-if="currentStep === 4" class="step-section">
-          <div class="glossary">
-            <h3>📚 Glossario</h3>
-            <div class="glossary-item">
-              <strong>Query:</strong> Richiesta di dati dal server
-            </div>
-            <div class="glossary-item">
-              <strong>Mutation:</strong> Modifica di dati sul server
-            </div>
-            <div class="glossary-item">
-              <strong>Schema:</strong> Definizione dei tipi di dati disponibili
-            </div>
-          </div>
-
-          <div class="analogy">
-            <h3>🔍 Analogia</h3>
-            <p>Pensa a GraphQL come a un <strong>menu à la carte</strong>:</p>
-            <ul>
-              <li>📋 <strong>Schema</strong> = Il menu completo (tutti i piatti disponibili)</li>
-              <li>🍽️ <strong>Query</strong> = Ordinare solo quello che vuoi</li>
-              <li>👨‍🍳 <strong>Mutation</strong> = Modificare o aggiungere piatti</li>
-            </ul>
-          </div>
-
-          <div class="interactive-demo">
-            <h3>🎮 Demo Interattiva</h3>
-            <div class="demo-container">
-              <div class="graphql-demo">
-                <h4>Query GraphQL</h4>
-                <pre class="code-block">
-query GetUsers {
-  users {
-    id
-    name
-    email
-  }
-}
-
-mutation CreateUser($name: String!, $email: String!) {
-  createUser(name: $name, email: $email) {
-    id
-    name
-    email
-  }
-}
-                </pre>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SQLite Step -->
-        <div v-if="currentStep === 5" class="step-section">
-          <div class="glossary">
-            <h3>📚 Glossario</h3>
-            <div class="glossary-item">
-              <strong>Database:</strong> Raccolta organizzata di dati
-            </div>
-            <div class="glossary-item">
-              <strong>SQLite:</strong> Database leggero e file-based
-            </div>
-            <div class="glossary-item">
-              <strong>Table:</strong> Struttura per organizzare i dati
-            </div>
-          </div>
-
-          <div class="analogy">
-            <h3>🔍 Analogia</h3>
-            <p>Pensa a SQLite come a un <strong>quaderno</strong>:</p>
-            <ul>
-              <li>📓 <strong>Database</strong> = Il quaderno completo</li>
-              <li>📄 <strong>Table</strong> = Le pagine del quaderno</li>
-              <li>✏️ <strong>SQL</strong> = Il linguaggio per scrivere</li>
-            </ul>
-          </div>
-
-          <div class="interactive-demo">
-            <h3>🎮 Demo Interattiva</h3>
-            <div class="demo-container">
-              <div class="sqlite-demo">
-                <h4>Operazioni SQLite</h4>
-                <div class="sql-commands">
-                  <div class="sql-command">
-                    <strong>CREATE TABLE users (</strong>
-                    <div class="sql-indent">id INTEGER PRIMARY KEY,</div>
-                    <div class="sql-indent">name TEXT NOT NULL,</div>
-                    <div class="sql-indent">email TEXT UNIQUE</div>
-                    <strong>);</strong>
-                  </div>
-                  
-                  <div class="sql-command">
-                    <strong>INSERT INTO users (name, email) VALUES</strong>
-                    <div class="sql-indent">('Mario Rossi', 'mario@example.com');</div>
-                  </div>
-                  
-                  <div class="sql-command">
-                    <strong>SELECT * FROM users;</strong>
-                  </div>
-                </div>
-              </div>
+              <div v-if="quiz3 === 'b'" class="correct-answer">✅ Corretto! SSR significa Server-Side Rendering.</div>
             </div>
           </div>
         </div>
 
         <!-- Integration Step -->
-        <div v-if="currentStep === 6" class="step-section">
+        <div v-if="currentStep === 3" class="step-section">
           <div class="integration-overview">
             <h3>🔗 Come Tutto Funziona Insieme</h3>
             <div class="integration-diagram">
@@ -369,12 +227,8 @@ mutation CreateUser($name: String!, $email: String!) {
                 <p>Gestione centralizzata dello stato</p>
               </div>
               <div class="layer">
-                <h4>🌐 API Layer (GraphQL)</h4>
-                <p>Comunicazione efficiente con il server</p>
-              </div>
-              <div class="layer">
-                <h4>🗄️ Database (SQLite + Prisma)</h4>
-                <p>Persistenza e gestione dei dati</p>
+                <h4>🌐 API Layer (Nuxt Server)</h4>
+                <p>Comunicazione con il server tramite API routes</p>
               </div>
             </div>
           </div>
@@ -386,7 +240,7 @@ mutation CreateUser($name: String!, $email: String!) {
               <div class="quiz-options">
                 <label><input type="radio" v-model="finalQuiz" value="a"> A) Vue 3</label>
                 <label><input type="radio" v-model="finalQuiz" value="b"> B) Pinia</label>
-                <label><input type="radio" v-model="finalQuiz" value="c"> C) GraphQL</label>
+                <label><input type="radio" v-model="finalQuiz" value="c"> C) Nuxt 3</label>
               </div>
               <div v-if="finalQuiz === 'b'" class="correct-answer">✅ Perfetto! Pinia gestisce lo stato globale dell'applicazione.</div>
             </div>
@@ -411,6 +265,7 @@ const counter2 = ref(0)
 const userName = ref('')
 const quiz1 = ref('')
 const quiz2 = ref('')
+const quiz3 = ref('')
 const finalQuiz = ref('')
 
 // User management
@@ -440,9 +295,6 @@ const tutorialSteps = [
   { title: 'Vue 3 - Fondamenti' },
   { title: 'Pinia - State Management' },
   { title: 'Nuxt 3 - Framework' },
-  { title: 'Prisma - ORM' },
-  { title: 'GraphQL - API' },
-  { title: 'SQLite - Database' },
   { title: 'Integrazione Completa' }
 ]
 </script>
@@ -573,7 +425,7 @@ const tutorialSteps = [
   gap: 1.5rem;
 }
 
-.counter-demo, .input-demo, .user-store-demo, .nuxt-features, .prisma-schema-demo, .graphql-demo, .sqlite-demo {
+.counter-demo, .input-demo, .user-store-demo, .nuxt-features {
   background: white;
   padding: 1.5rem;
   border-radius: 12px;
@@ -644,36 +496,6 @@ const tutorialSteps = [
   border-radius: 8px;
   margin-bottom: 0.5rem;
   border-left: 3px solid #28a745;
-}
-
-.code-block {
-  background: #2d3748;
-  color: #e2e8f0;
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.sql-commands {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.sql-command {
-  background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 3px solid #17a2b8;
-  font-family: 'Courier New', monospace;
-}
-
-.sql-indent {
-  margin-left: 1rem;
-  color: #666;
 }
 
 .quiz-options {

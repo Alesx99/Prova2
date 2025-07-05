@@ -12,18 +12,9 @@
   },
   "dependencies": {
     "@nuxt/devtools": "^2.6.2",
-    "@nuxt/ui": "^3.2.0",
-    "@nuxthq/studio": "^2.2.1",
-    "@nuxthq/ui": "^2.7.0",
     "@pinia/nuxt": "^0.11.1",
-    "@prisma/client": "^6.11.1",
-    "apollo-server": "^3.13.0",
-    "graphql": "^16.11.0",
-    "graphql-tag": "^2.12.6",
     "nuxt": "^3.17.6",
     "pinia": "^3.0.3",
-    "prisma": "^6.11.1",
-    "sqlite3": "^5.1.7",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   }
