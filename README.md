@@ -1,3 +1,48 @@
+# Tutorial Sviluppo Web Moderno
+
+Tutorial completo per prepararsi al mondo del lavoro nelle aziende di telecomunicazioni.
+
+## 🚀 Tecnologie
+
+- **Nuxt 3** - Framework Vue.js moderno
+- **Vue 3** - Framework JavaScript progressivo  
+- **Pinia** - Store management
+- **TypeScript** - Linguaggio tipizzato
+
+## 🛠️ Sviluppo
+
+```bash
+# Installa dipendenze
+npm install
+
+# Avvia server di sviluppo
+npm run dev
+
+# Build per produzione
+npm run build
+```
+
+## 📚 Contenuti del Tutorial
+
+- **Frontend Moderno**: Vue 3, Nuxt 3, Pinia
+- **Backend & API**: REST APIs, autenticazione
+- **Database**: Modelli dati, query, migrazioni
+- **Testing**: Unit test, integration test
+- **DevOps**: CI/CD, deployment, monitoring
+- **Best Practices**: Clean code, performance, security
+
+## 🎯 Obiettivo
+
+Prepararsi per posizioni in aziende come:
+- Fastweb
+- Metroweb  
+- OpenFiber
+- Altre aziende di telecomunicazioni
+
+---
+
+**Live Demo**: [GitHub Pages](https://[username].github.io/[repository-name]/)
+
 # 🎓 Tutorial Completo - Sviluppo Web Professionale
 
 Un tutorial completo e interattivo per prepararsi al mondo del lavoro nelle telecomunicazioni (Fastweb, Metroweb, OpenFiber, ecc.) con un approccio didattico universitario e professionale.

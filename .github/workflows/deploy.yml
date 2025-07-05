@@ -3,8 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build-and-deploy:
@@ -23,19 +21,11 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
-    - name: Build and generate static site
-      run: npm run generate
-      
-    - name: Create .nojekyll file
-      run: touch .output/public/.nojekyll
-      
-    - name: Copy public files
-      run: cp -r public/* .output/public/ 2>/dev/null || true
+    - name: Build
+      run: npm run build
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./.output/public
-        cname: # Add your custom domain here if you have one 
+        publish_dir: ./.output/public 
