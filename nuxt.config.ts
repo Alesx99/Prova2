@@ -25,6 +25,7 @@ export default defineNuxtConfig({
   },
   app: {
     baseURL: process.env.NODE_ENV === 'production' ? '/TutorialSviluppo/' : '/',
-    buildAssetsDir: process.env.NODE_ENV === 'production' ? '/TutorialSviluppo/_nuxt/' : '/_nuxt/'
+    buildAssetsDir: process.env.NODE_ENV === 'production' ? '/TutorialSviluppo/_nuxt/' : '/_nuxt/',
+    cdnURL: process.env.NODE_ENV === 'production' ? 'https://alesx99.github.io' : ''
   }
 })
