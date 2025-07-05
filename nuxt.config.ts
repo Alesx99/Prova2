@@ -12,10 +12,10 @@ export default defineNuxtConfig({
       apiBase: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000'
     }
   },
-  // Configurazione semplificata per GitHub Pages
+  // Configurazione per GitHub Pages
   ssr: false,
   app: {
-    baseURL: '/TutorialSviluppo/'
+    baseURL: process.env.NODE_ENV === 'production' ? '/Prova2/' : '/TutorialSviluppo/'
   },
   nitro: {
     prerender: {
