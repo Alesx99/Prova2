@@ -194,3 +194,15 @@ Questo progetto è sotto licenza MIT. Vedi il file `LICENSE` per maggiori dettag
 ⭐ **Se questo tutorial ti è stato utile, lascia una stella al repository!**
 
 🚀 **Preparati per il tuo futuro nel mondo delle telecomunicazioni!**
+
+# Tutorial Sviluppo Web Moderno con Nuxt 3
+
+> **Nota**: Questo tutorial è stato aggiornato per risolvere i problemi di deploy su GitHub Pages.
+
+## 🚀 Tecnologie Utilizzate
+
+- **Nuxt 3** - Framework Vue.js per applicazioni moderne
+- **Vue 3** - Framework JavaScript progressivo
+- **Pinia** - Store management per Vue
+- **TypeScript** - Linguaggio tipizzato per JavaScript
+- **Vite** - Build tool veloce e moderno
