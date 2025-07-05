@@ -2,8 +2,8 @@
   <div class="tutorial-container">
     <!-- Header -->
     <header class="header">
-      <h1>🎓 Tutorial Interattivo Sviluppo Web</h1>
-      <p>Impara Vue 3, Pinia e Nuxt 3 passo dopo passo</p>
+      <h1>🎓 Tutorial Completo - Sviluppo Web Professionale</h1>
+      <p>Preparazione completa per il mondo del lavoro: Vue 3, Pinia, Nuxt 3, Database, API e DevOps</p>
     </header>
 
     <!-- Navigation -->
@@ -213,8 +213,450 @@
           </div>
         </div>
 
-        <!-- Integration Step -->
+        <!-- Database & ORM Step -->
         <div v-if="currentStep === 3" class="step-section">
+          <div class="glossary">
+            <h3>📚 Glossario</h3>
+            <div class="glossary-item">
+              <strong>ORM:</strong> Object-Relational Mapping - mappa oggetti a tabelle del database
+            </div>
+            <div class="glossary-item">
+              <strong>Prisma:</strong> ORM moderno con type-safety per TypeScript
+            </div>
+            <div class="glossary-item">
+              <strong>SQLite:</strong> Database leggero e file-based, perfetto per sviluppo
+            </div>
+            <div class="glossary-item">
+              <strong>Migration:</strong> Modifiche controllate alla struttura del database
+            </div>
+          </div>
+
+          <div class="analogy">
+            <h3>🔍 Analogia</h3>
+            <p>Pensa al database come a un <strong>archivio aziendale</strong>:</p>
+            <ul>
+              <li>🗄️ <strong>Database</strong> = L'edificio dell'archivio</li>
+              <li>📁 <strong>Tabelle</strong> = I reparti dell'archivio</li>
+              <li>📋 <strong>ORM</strong> = Il sistema di catalogazione intelligente</li>
+              <li>🔐 <strong>Prisma</strong> = Il software di gestione avanzato</li>
+            </ul>
+          </div>
+
+          <div class="interactive-demo">
+            <h3>🎮 Demo Interattiva</h3>
+            <div class="demo-container">
+              <div class="database-demo">
+                <h4>Schema Database</h4>
+                <pre class="code-block">
+// Prisma Schema
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  posts     Post[]
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  published Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+enum Role {
+  USER
+  ADMIN
+  MODERATOR
+}
+                </pre>
+              </div>
+              
+              <div class="database-operations">
+                <h4>Operazioni Database</h4>
+                <div class="operation-item">
+                  <strong>CREATE:</strong> Inserire nuovi dati
+                </div>
+                <div class="operation-item">
+                  <strong>READ:</strong> Leggere dati esistenti
+                </div>
+                <div class="operation-item">
+                  <strong>UPDATE:</strong> Modificare dati
+                </div>
+                <div class="operation-item">
+                  <strong>DELETE:</strong> Rimuovere dati
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz">
+            <h3>❓ Quiz</h3>
+            <div class="quiz-question">
+              <p><strong>Domanda:</strong> Quale vantaggio offre Prisma rispetto a query SQL dirette?</p>
+              <div class="quiz-options">
+                <label><input type="radio" v-model="quiz4" value="a"> A) Nessun vantaggio</label>
+                <label><input type="radio" v-model="quiz4" value="b"> B) Type-safety e autocompletamento</label>
+                <label><input type="radio" v-model="quiz4" value="c"> C) Solo performance migliori</label>
+              </div>
+              <div v-if="quiz4 === 'b'" class="correct-answer">✅ Corretto! Prisma offre type-safety e autocompletamento intelligente.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- API & Backend Step -->
+        <div v-if="currentStep === 4" class="step-section">
+          <div class="glossary">
+            <h3>📚 Glossario</h3>
+            <div class="glossary-item">
+              <strong>REST API:</strong> Architettura per comunicazione client-server
+            </div>
+            <div class="glossary-item">
+              <strong>GraphQL:</strong> Query language per API più flessibile
+            </div>
+            <div class="glossary-item">
+              <strong>JWT:</strong> JSON Web Token per autenticazione
+            </div>
+            <div class="glossary-item">
+              <strong>Middleware:</strong> Funzioni che processano richieste HTTP
+            </div>
+          </div>
+
+          <div class="analogy">
+            <h3>🔍 Analogia</h3>
+            <p>Pensa alle API come a un <strong>ristorante</strong>:</p>
+            <ul>
+              <li>🍽️ <strong>Menu (API)</strong> = I piatti disponibili</li>
+              <li>👨‍🍳 <strong>Chef (Backend)</strong> = Chi prepara i piatti</li>
+              <li>📋 <strong>Ordinazioni (Requests)</strong> = Le richieste dei clienti</li>
+              <li>🍽️ <strong>Piatti (Responses)</strong> = I dati restituiti</li>
+            </ul>
+          </div>
+
+          <div class="interactive-demo">
+            <h3>🎮 Demo Interattiva</h3>
+            <div class="demo-container">
+              <div class="api-demo">
+                <h4>REST API Endpoints</h4>
+                <div class="endpoint-item">
+                  <span class="method get">GET</span>
+                  <span class="path">/api/users</span>
+                  <span class="description">Ottieni tutti gli utenti</span>
+                </div>
+                <div class="endpoint-item">
+                  <span class="method post">POST</span>
+                  <span class="path">/api/users</span>
+                  <span class="description">Crea nuovo utente</span>
+                </div>
+                <div class="endpoint-item">
+                  <span class="method put">PUT</span>
+                  <span class="path">/api/users/:id</span>
+                  <span class="description">Aggiorna utente</span>
+                </div>
+                <div class="endpoint-item">
+                  <span class="method delete">DELETE</span>
+                  <span class="path">/api/users/:id</span>
+                  <span class="description">Elimina utente</span>
+                </div>
+              </div>
+              
+              <div class="graphql-demo">
+                <h4>GraphQL Query</h4>
+                <pre class="code-block">
+query GetUsers {
+  users {
+    id
+    name
+    email
+    posts {
+      title
+      content
+    }
+  }
+}
+
+mutation CreateUser($name: String!, $email: String!) {
+  createUser(name: $name, email: $email) {
+    id
+    name
+    email
+  }
+}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz">
+            <h3>❓ Quiz</h3>
+            <div class="quiz-question">
+              <p><strong>Domanda:</strong> Quale metodo HTTP si usa per creare nuove risorse?</p>
+              <div class="quiz-options">
+                <label><input type="radio" v-model="quiz5" value="a"> A) GET</label>
+                <label><input type="radio" v-model="quiz5" value="b"> B) POST</label>
+                <label><input type="radio" v-model="quiz5" value="c"> C) PUT</label>
+              </div>
+              <div v-if="quiz5 === 'b'" class="correct-answer">✅ Corretto! POST si usa per creare nuove risorse.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testing & Quality Step -->
+        <div v-if="currentStep === 5" class="step-section">
+          <div class="glossary">
+            <h3>📚 Glossario</h3>
+            <div class="glossary-item">
+              <strong>Unit Test:</strong> Test di singole funzioni o componenti
+            </div>
+            <div class="glossary-item">
+              <strong>Integration Test:</strong> Test di integrazione tra componenti
+            </div>
+            <div class="glossary-item">
+              <strong>E2E Test:</strong> Test end-to-end dell'applicazione
+            </div>
+            <div class="glossary-item">
+              <strong>Code Coverage:</strong> Percentuale di codice testato
+            </div>
+          </div>
+
+          <div class="analogy">
+            <h3>🔍 Analogia</h3>
+            <p>Pensa ai test come a un <strong>controllo qualità</strong>:</p>
+            <ul>
+              <li>🔍 <strong>Unit Test</strong> = Controllo singoli pezzi</li>
+              <li>🔗 <strong>Integration Test</strong> = Controllo assemblaggio</li>
+              <li>🏭 <strong>E2E Test</strong> = Controllo prodotto finale</li>
+              <li>📊 <strong>Coverage</strong> = Percentuale controllata</li>
+            </ul>
+          </div>
+
+          <div class="interactive-demo">
+            <h3>🎮 Demo Interattiva</h3>
+            <div class="demo-container">
+              <div class="testing-demo">
+                <h4>Esempi di Test</h4>
+                <div class="test-example">
+                  <h5>Unit Test (Vue Component)</h5>
+                  <pre class="code-block">
+import { mount } from '@vue/test-utils'
+import Counter from './Counter.vue'
+
+test('increments counter', async () => {
+  const wrapper = mount(Counter)
+  await wrapper.find('button').trigger('click')
+  expect(wrapper.text()).toContain('1')
+})
+                  </pre>
+                </div>
+                
+                <div class="test-example">
+                  <h5>API Test</h5>
+                  <pre class="code-block">
+test('GET /api/users returns users', async () => {
+  const response = await request(app)
+    .get('/api/users')
+    .expect(200)
+  
+  expect(response.body).toHaveLength(2)
+})
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz">
+            <h3>❓ Quiz</h3>
+            <div class="quiz-question">
+              <p><strong>Domanda:</strong> Quale tipo di test verifica l'intera applicazione?</p>
+              <div class="quiz-options">
+                <label><input type="radio" v-model="quiz6" value="a"> A) Unit Test</label>
+                <label><input type="radio" v-model="quiz6" value="b"> B) Integration Test</label>
+                <label><input type="radio" v-model="quiz6" value="c"> C) E2E Test</label>
+              </div>
+              <div v-if="quiz6 === 'c'" class="correct-answer">✅ Corretto! E2E test verifica l'intera applicazione.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps & Deploy Step -->
+        <div v-if="currentStep === 6" class="step-section">
+          <div class="glossary">
+            <h3>📚 Glossario</h3>
+            <div class="glossary-item">
+              <strong>CI/CD:</strong> Continuous Integration/Continuous Deployment
+            </div>
+            <div class="glossary-item">
+              <strong>Docker:</strong> Containerizzazione delle applicazioni
+            </div>
+            <div class="glossary-item">
+              <strong>Kubernetes:</strong> Orchestrazione di container
+            </div>
+            <div class="glossary-item">
+              <strong>Monitoring:</strong> Monitoraggio delle performance
+            </div>
+          </div>
+
+          <div class="analogy">
+            <h3>🔍 Analogia</h3>
+            <p>Pensa al DevOps come a una <strong>catena di montaggio</strong>:</p>
+            <ul>
+              <li>🏭 <strong>CI</strong> = Controllo qualità automatico</li>
+              <li>🚚 <strong>CD</strong> = Distribuzione automatica</li>
+              <li>📦 <strong>Docker</strong> = Imballaggio standardizzato</li>
+              <li>📊 <strong>Monitoring</strong> = Controllo performance</li>
+            </ul>
+          </div>
+
+          <div class="interactive-demo">
+            <h3>🎮 Demo Interattiva</h3>
+            <div class="demo-container">
+              <div class="devops-demo">
+                <h4>Pipeline CI/CD</h4>
+                <div class="pipeline-step">
+                  <span class="step-number">1</span>
+                  <span class="step-name">Code Commit</span>
+                </div>
+                <div class="pipeline-step">
+                  <span class="step-number">2</span>
+                  <span class="step-name">Run Tests</span>
+                </div>
+                <div class="pipeline-step">
+                  <span class="step-number">3</span>
+                  <span class="step-name">Build</span>
+                </div>
+                <div class="pipeline-step">
+                  <span class="step-number">4</span>
+                  <span class="step-name">Deploy</span>
+                </div>
+              </div>
+              
+              <div class="docker-demo">
+                <h4>Dockerfile</h4>
+                <pre class="code-block">
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz">
+            <h3>❓ Quiz</h3>
+            <div class="quiz-question">
+              <p><strong>Domanda:</strong> Cosa significa CI/CD?</p>
+              <div class="quiz-options">
+                <label><input type="radio" v-model="quiz7" value="a"> A) Code Integration/Code Deployment</label>
+                <label><input type="radio" v-model="quiz7" value="b"> B) Continuous Integration/Continuous Deployment</label>
+                <label><input type="radio" v-model="quiz7" value="c"> C) Container Integration/Container Deployment</label>
+              </div>
+              <div v-if="quiz7 === 'b'" class="correct-answer">✅ Corretto! CI/CD significa Continuous Integration/Continuous Deployment.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Practices Aziendali Step -->
+        <div v-if="currentStep === 7" class="step-section">
+          <div class="glossary">
+            <h3>📚 Glossario</h3>
+            <div class="glossary-item">
+              <strong>Clean Code:</strong> Codice leggibile e manutenibile
+            </div>
+            <div class="glossary-item">
+              <strong>SOLID Principles:</strong> Principi di design object-oriented
+            </div>
+            <div class="glossary-item">
+              <strong>Code Review:</strong> Revisione del codice da parte di colleghi
+            </div>
+            <div class="glossary-item">
+              <strong>Agile/Scrum:</strong> Metodologie di sviluppo iterativo
+            </div>
+          </div>
+
+          <div class="analogy">
+            <h3>🔍 Analogia</h3>
+            <p>Pensa alle best practices come a un <strong>manuale di buone maniere</strong>:</p>
+            <ul>
+              <li>📖 <strong>Clean Code</strong> = Scrivere in modo chiaro</li>
+              <li>🏗️ <strong>SOLID</strong> = Costruire in modo solido</li>
+              <li>👥 <strong>Code Review</strong> = Controllo reciproco</li>
+              <li>🔄 <strong>Agile</strong> = Lavorare in modo flessibile</li>
+            </ul>
+          </div>
+
+          <div class="interactive-demo">
+            <h3>🎮 Demo Interattiva</h3>
+            <div class="demo-container">
+              <div class="best-practices-demo">
+                <h4>Esempi di Clean Code</h4>
+                <div class="code-example">
+                  <h5>❌ Codice Cattivo</h5>
+                  <pre class="code-block">
+function x(a,b,c) {
+  let d = 0;
+  for(let i=0;i<a.length;i++) {
+    d += a[i] * b[i] + c;
+  }
+  return d;
+}
+                  </pre>
+                </div>
+                
+                <div class="code-example">
+                  <h5>✅ Codice Pulito</h5>
+                  <pre class="code-block">
+function calculateWeightedSum(values, weights, offset) {
+  return values.reduce((sum, value, index) => {
+    return sum + (value * weights[index] + offset);
+  }, 0);
+}
+                  </pre>
+                </div>
+              </div>
+              
+              <div class="agile-demo">
+                <h4>Metodologie Agile</h4>
+                <div class="agile-item">
+                  <strong>Sprint:</strong> Ciclo di sviluppo (2-4 settimane)
+                </div>
+                <div class="agile-item">
+                  <strong>Daily Standup:</strong> Riunione giornaliera di 15 min
+                </div>
+                <div class="agile-item">
+                  <strong>Retrospective:</strong> Riflessione sul processo
+                </div>
+                <div class="agile-item">
+                  <strong>User Stories:</strong> Requisiti dal punto di vista utente
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz">
+            <h3>❓ Quiz</h3>
+            <div class="quiz-question">
+              <p><strong>Domanda:</strong> Quale principio SOLID dice che una classe dovrebbe avere una sola responsabilità?</p>
+              <div class="quiz-options">
+                <label><input type="radio" v-model="quiz8" value="a"> A) Single Responsibility Principle</label>
+                <label><input type="radio" v-model="quiz8" value="b"> B) Open/Closed Principle</label>
+                <label><input type="radio" v-model="quiz8" value="c"> C) Liskov Substitution Principle</label>
+              </div>
+              <div v-if="quiz8 === 'a'" class="correct-answer">✅ Corretto! Single Responsibility Principle.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Integration Step -->
+        <div v-if="currentStep === 8" class="step-section">
           <div class="integration-overview">
             <h3>🔗 Come Tutto Funziona Insieme</h3>
             <div class="integration-diagram">
@@ -227,8 +669,20 @@
                 <p>Gestione centralizzata dello stato</p>
               </div>
               <div class="layer">
-                <h4>🌐 API Layer (Nuxt Server)</h4>
-                <p>Comunicazione con il server tramite API routes</p>
+                <h4>🌐 API Layer (REST/GraphQL)</h4>
+                <p>Comunicazione con il server tramite API</p>
+              </div>
+              <div class="layer">
+                <h4>🗄️ Database (SQLite + Prisma)</h4>
+                <p>Persistenza e gestione dei dati</p>
+              </div>
+              <div class="layer">
+                <h4>🧪 Testing (Unit + E2E)</h4>
+                <p>Qualità e affidabilità del codice</p>
+              </div>
+              <div class="layer">
+                <h4>🚀 DevOps (CI/CD + Docker)</h4>
+                <p>Deploy e monitoraggio automatico</p>
               </div>
             </div>
           </div>
@@ -266,6 +720,11 @@ const userName = ref('')
 const quiz1 = ref('')
 const quiz2 = ref('')
 const quiz3 = ref('')
+const quiz4 = ref('')
+const quiz5 = ref('')
+const quiz6 = ref('')
+const quiz7 = ref('')
+const quiz8 = ref('')
 const finalQuiz = ref('')
 
 // User management
@@ -295,6 +754,11 @@ const tutorialSteps = [
   { title: 'Vue 3 - Fondamenti' },
   { title: 'Pinia - State Management' },
   { title: 'Nuxt 3 - Framework' },
+  { title: 'Database & ORM' },
+  { title: 'API & Backend' },
+  { title: 'Testing & Quality' },
+  { title: 'DevOps & Deploy' },
+  { title: 'Best Practices Aziendali' },
   { title: 'Integrazione Completa' }
 ]
 </script>
@@ -425,7 +889,7 @@ const tutorialSteps = [
   gap: 1.5rem;
 }
 
-.counter-demo, .input-demo, .user-store-demo, .nuxt-features {
+.counter-demo, .input-demo, .user-store-demo, .nuxt-features, .database-demo, .api-demo, .graphql-demo, .testing-demo, .devops-demo, .docker-demo, .best-practices-demo, .agile-demo {
   background: white;
   padding: 1.5rem;
   border-radius: 12px;
@@ -496,6 +960,97 @@ const tutorialSteps = [
   border-radius: 8px;
   margin-bottom: 0.5rem;
   border-left: 3px solid #28a745;
+}
+
+.code-block {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.operation-item, .agile-item {
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid #17a2b8;
+}
+
+.endpoint-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.method {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.method.get { background: #28a745; }
+.method.post { background: #007bff; }
+.method.put { background: #ffc107; color: #333; }
+.method.delete { background: #dc3545; }
+
+.path {
+  font-family: 'Courier New', monospace;
+  background: #e9ecef;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.description {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.test-example, .code-example {
+  margin-bottom: 1.5rem;
+}
+
+.test-example h5, .code-example h5 {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.step-number {
+  background: rgba(255, 255, 255, 0.2);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.step-name {
+  font-weight: 500;
 }
 
 .quiz-options {
